@@ -76,7 +76,7 @@ const TransactionsTable = ({ transactions, totalPages, currentPage, onPageChange
                 </tbody>
             </table>
 
-            {/* Pagination */}
+           
             <div className="pagination">
                 <button type="button" onClick={handlePrevious} disabled={currentPage === 1}>
                     Previous
