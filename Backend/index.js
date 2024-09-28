@@ -6,7 +6,7 @@ const app = express();
 app.use(express.json());
 app.use(cors(
     {
-        origin:["https://dekstop-task-api.vercel.app/"],
+        origin:[""],
         methods:["GET"],
         credentials:true
     }
