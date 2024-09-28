@@ -7,10 +7,11 @@ app.use(express.json());
 app.use(cors(
     {
         origin:["https://dekstop-task-frontend.vercel.app/"],
-        methods:["GET"],
+        methods:["GET","POST", "PUT", "DELETE"],
         credentials:true
     }
 ));
+app.options('*', cors());
 require('dotenv').config(); 
 
 mongoose.connect(process.env.MONGO_URL).then(() => console.log('Connected to MongoDB'))
