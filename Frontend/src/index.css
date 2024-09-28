@@ -1,0 +1,447 @@
+/* General Styling */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  margin: 0;
+  padding: 20px;
+  font-family: "Roboto", sans-serif;
+}
+
+h1 {
+  font-size: 2rem;
+  color: #333;
+}
+
+h2 {
+  font-size: 1.5rem;
+  color: #555;
+}
+
+/* App Container Styling */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin: 0 auto;
+  max-width: 1400px;
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 100%;
+}
+
+.top-container {
+  display: flex;
+  gap: 30px;
+  width: 97%;
+  
+}
+
+/* Flexbox will stack items vertically on smaller screens */
+.bottom-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  width: 100%;
+}
+
+/* Stats */
+.statistics-container {
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.statistics-summary {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  gap: 15px;
+  flex-wrap: wrap; /* Wraps on smaller screens */
+}
+
+.statistics-item {
+  flex: 1;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 180px; /* Minimum width for smaller screens */
+}
+
+.statistics-item p {
+  font-size: 16px;
+  color: #777;
+  margin: 10px 0 5px;
+}
+
+.statistics-item strong {
+  font-size: 24px;
+  color: #333;
+}
+
+.statistics-item img.stats-icon {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 10px;
+}
+
+/* Specific color schemes for each statistics item */
+.statistics-summary .statistics-item:nth-child(1) {
+  background-color: #e8f7ed; /* Light green */
+  border-left: 4px solid #4caf50;
+}
+
+.statistics-summary .statistics-item:nth-child(2) {
+  background-color: #eef4fe; /* Light blue */
+  border-left: 4px solid #2196f3;
+}
+
+.statistics-summary .statistics-item:nth-child(3) {
+  background-color: #fff7e7; /* Light yellow */
+  border-left: 4px solid #ff9800;
+}
+
+/* Dropdown and Search Styling */
+/* Container for transactions table */
+.transactions-table-container {
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  margin: 20px;
+  width: 100%;
+}
+
+/* Flexbox for month dropdown on left and search bar on right */
+.dropdown-search-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap; /* Wraps on smaller screens */
+}
+
+
+.dropdown-container select {
+  margin-left: 10px;
+  padding: 10px 15px;
+  border-radius: 30px; /* Round edges for a sleek look */
+  border: 1px solid #007bff; /* Vibrant blue border */
+  font-size: 16px; /* Larger font size */
+  background-color: #f0f8ff; /* Light blue background */
+  color: #007bff; /* Blue text color */
+  outline: none; /* Remove default outline */
+  appearance: none; /* Remove default arrow for custom styling */
+ 
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%23007bff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg>');
+  background-repeat: no-repeat;
+  background-position: right 15px center;
+  background-size: 20px;
+}
+
+
+
+
+/* Table styling */
+.transactions-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.transactions-table th,
+.transactions-table td {
+  padding: 12px;
+  text-align: left;
+  font-size: 13px;
+  border-bottom: 1px solid #e0e0e0;
+  
+}
+
+.transactions-table th {
+  color: #faf5f5;
+  background-color: #2195f3e3;
+  font-size: 15px;
+}
+
+.transactions-table td {
+  color: #222222;
+  background-color: #c6e1f766;
+
+}
+
+/* Image styling in table */
+.transaction-image {
+  width: 60px;
+  height: auto;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+/* Pagination buttons */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.pagination button {
+  padding: 8px 16px;
+  margin: 0 5px;
+  border: none;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.pagination button[disabled] {
+  background-color: #ccc;
+  cursor: pointer;
+}
+
+.pagination span {
+  margin: 0 10px;
+}
+
+/* Chart Container Styling */
+.chart-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 30px;
+  width: 100%;
+}
+
+.chart-box {
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  width: 100%;
+  max-width: 600px;
+  text-align: center;
+  
+}
+.pie-chart-container {
+  width: 100%;
+  max-width: 400px; /* Set the max-width for the pie chart */
+  height: auto; /* Adjust height proportionally */
+  margin: 0 auto; /* Center the chart */
+}
+.piechart-container, .barchart-container {
+  width: 100%;
+}
+.label-month{
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  font-weight: bold;
+  color: #007bff;
+  padding: 10px 15px;
+  background-color: #f0f8ff;
+  border-radius: 30px;
+  box-shadow: 0 4px 10px rgba(0, 123, 255, 0.2);
+  gap: 10px;
+  margin-bottom: 20px;
+  max-width: 350px;
+}
+.search-container input {
+  padding: 10px 15px;
+  border-radius: 30px; /* Rounded edges for a modern look */
+  border: 1px solid #007bff; /* Blue border */
+  font-size: 16px;
+  width: 250px; /* Increase width for better readability */
+  margin-bottom: 20px;
+  background-color: #f0f8ff; /* Light blue background */
+  color: #007bff; /* Blue text color */
+  outline: none; }
+
+/* Large Tablets (800px - 1200px) */
+@media screen and (max-width: 1200px) {
+  .top-container, .bottom-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .chart-box {
+    max-width: 90%;
+  }
+
+  .statistics-summary {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+}
+.transactions-table-container,.statistics-container,.barchart-container {
+  overflow-x: auto;
+}
+
+
+/* Tablets (600px - 800px) */
+@media screen and (max-width: 800px) and (min-width: 600px) {
+
+  /* Ensuring app container doesn't overflow */
+  .app-container {
+    padding: 10px;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%; /* Ensures app container doesn't overflow */
+  }
+
+  /* Make statistics components horizontal in this range */
+  .statistics-summary {
+    display: flex;
+    flex-direction: row;  /* Horizontal layout */
+    justify-content: space-between; /* Space out the items */
+    gap: 20px;
+    padding: 10px;
+    width: 100%;
+  }
+
+  /* Ensure each stats item has enough space horizontally */
+  .statistics-item {
+    flex: 1; /* Ensures the items share the space equally */
+    padding: 10px;
+    box-sizing: border-box;
+    min-width: 200px; /* Ensures enough width for content */
+  }
+  .pie-chart-container {
+    max-width: 300px; /* Smaller chart for medium screens */
+  }
+  /* Adjust chart sizes for better balance */
+  .chart-container {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  /* Bar chart gets more space than pie chart */
+  .barchart-container {
+    flex: 2; /* Bar chart takes 2/3 of available space */
+    min-width: 300px;
+  }
+
+  .piechart-container {
+    flex: 1; /* Pie chart takes 1/3 of available space */
+    min-width: 200px;
+  }
+
+  /* Ensure charts and tables stay within the app-container */
+   .transactions-table-container {
+    width: 100%;
+    max-width: 100%; /* Full width on smaller screens */
+    box-sizing: border-box;
+  }
+
+  .chart-box{
+    width: 100%;
+  
+  }
+  .dropdown-search-container {
+    flex-direction: row;  /* Keep dropdown and search side by side */
+    gap: 15px;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+
+  .dropdown-container select, 
+  .search-container input {
+    width: auto; /* Let them adjust naturally in this range */
+    
+
+  }
+
+  /* Adjust table and pagination for this screen range */
+  .transactions-table th,
+  .transactions-table td {
+    padding: 10px;
+  }
+
+  .pagination button {
+    padding: 8px 14px;
+  }
+}
+
+
+/* Mobile Devices (less than 600px) */
+@media screen and (max-width: 600px) {
+  h1 {
+    font-size: 1.75rem;
+  }
+
+  h2 {
+    font-size: 1.25rem;
+  }
+
+  /* Ensuring app container doesn't overflow */
+  .app-container {
+    padding: 10px;
+    box-sizing: border-box;
+    width: 100%;
+    overflow-x: hidden;  /* Prevents horizontal overflow */
+  }
+   
+ 
+  .statistics-summary {
+    display: flex;
+    flex-direction: row;  /* Keeps stats items horizontal */
+    overflow-x: auto;     /* Allow horizontal scrolling if necessary */
+    gap: 10px;
+    padding: 10px;
+    justify-content: flex-start; /* Aligns items to the start */
+  }
+
+  .statistics-item {
+    min-width: 250px; /* Ensures enough space for content */
+    flex-shrink: 0;   /* Prevents items from shrinking */
+  }
+
+  /* Ensure charts and tables stay within the app-container */
+  .chart-box, .transactions-table-container {
+    width: 100%;
+    max-width: 100%; /* Full width on smaller screens */
+    box-sizing: border-box;
+    margin-left: 0;
+   
+  }
+
+  .dropdown-search-container {
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .dropdown-container select, 
+  .search-container input {
+    width: 100%;
+   display: flex;
+  }
+
+  .pie-chart-container {
+    max-width: 270px; /* Even smaller chart for mobile screens */
+  }
+  /* Adjust table and pagination for small screens */
+  .transactions-table th,
+  .transactions-table td {
+    padding: 8px;
+  }
+
+  .pagination button {
+    padding: 6px 12px;
+  }
+}
+
