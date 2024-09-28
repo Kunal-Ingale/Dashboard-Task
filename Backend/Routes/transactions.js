@@ -2,7 +2,6 @@ const express = require('express')
 const Transaction = require('../Models/Transaction')
 const axios = require('axios')
 
-//const transactionsRoutes = require('./routes/transactions');
 const router = express.Router()
 const monthMap = {
     January: 1,
@@ -56,10 +55,8 @@ router.get('/list', async (req, res) => {
         const limit = parseInt(perPage);
         const skip = (parseInt(page) - 1) * limit;
 
-        // Find transactions by month without considering the year
         const transactions = await Transaction.find({
-            $expr: { $eq: [{ $month: "$dateOfSale" }, monthNum + 1] }, // monthNum is 0-indexed, MongoDB months are 1-indexed
-            ...searchQuery
+            $expr: { $eq: [{ $month: "$dateOfSale" }, monthNum + 1] }, 
         })
             .skip(skip)
             .limit(limit);
@@ -81,7 +78,6 @@ router.get('/list', async (req, res) => {
     }
 });
 
-// Statistics Route
 router.get('/statistics', async (req, res) => {
     const { month } = req.query;
     const monthNum = monthMap[month];
@@ -91,28 +87,26 @@ router.get('/statistics', async (req, res) => {
     }
   
     try {
-      // Count total sold items irrespective of year
+     
       const totalSold = await Transaction.countDocuments({
         $expr: {
-          $eq: [{ $month: "$dateOfSale" }, monthNum], // Match on the month only, ignoring the year
+          $eq: [{ $month: "$dateOfSale" }, monthNum], 
         },
         sold: true,
       });
   
-      // Count total not sold items irrespective of year
       const totalNotSold = await Transaction.countDocuments({
         $expr: {
-          $eq: [{ $month: "$dateOfSale" }, monthNum], // Match on the month only, ignoring the year
+          $eq: [{ $month: "$dateOfSale" }, monthNum], 
         },
         sold: false,
       });
   
-      // Calculate total sale amount for sold items irrespective of year
       const totalSaleAmount = await Transaction.aggregate([
         {
           $match: {
             $expr: {
-              $eq: [{ $month: "$dateOfSale" }, monthNum], // Match on the month only, ignoring the year
+              $eq: [{ $month: "$dateOfSale" }, monthNum], 
             },
             sold: true,
           },
@@ -130,9 +124,6 @@ router.get('/statistics', async (req, res) => {
     }
   });
 
-
-
-// Bar Chart Route
 router.get('/bar-chart', async (req, res) => {
     const { month } = req.query;
     const priceRanges = [
@@ -156,7 +147,7 @@ router.get('/bar-chart', async (req, res) => {
         const barChartData = await Promise.all(
             priceRanges.map(async ({ range, min, max }) => {
                 const count = await Transaction.countDocuments({
-                    $expr: { $eq: [{ $month: "$dateOfSale" }, monthNum + 1] }, // Match by month only, ignoring year
+                    $expr: { $eq: [{ $month: "$dateOfSale" }, monthNum + 1] }, 
                     price: { $gte: min, $lt: max }
                 });
                 return { range, count };
@@ -180,21 +171,16 @@ router.get('/pie-chart', async (req, res) => {
         const startOfMonth = new Date( monthNum, 1);
         const endOfMonth = new Date( monthNum + 1, 0);
 
-        
-        // const pieChartData = await Transaction.aggregate([
-        //     { $match: { dateOfSale: { $gte: startOfMonth, $lt: endOfMonth } } },
-        //     { $group: { _id: "$category", count: { $sum: 1 } } }
-        // ]);
         const pieChartData = await Transaction.aggregate([
             {
               $match: {
-                $expr: { $eq: [{ $month: "$dateOfSale" }, monthNum] }, // Match only by month, ignoring the year
+                $expr: { $eq: [{ $month: "$dateOfSale" }, monthNum] }, 
               },
             },
             {
               $group: {
-                _id: "$category", // Group by category
-                count: { $sum: 1 }, // Count the number of items in each category
+                _id: "$category",
+                count: { $sum: 1 }, 
               },
             },
           ]);
