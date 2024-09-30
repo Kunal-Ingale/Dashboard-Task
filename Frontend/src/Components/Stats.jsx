@@ -52,8 +52,8 @@ const Stats = ({ statistics,month, setMonth}) => {
 
       <div className="statistics-item">
       <img src={SaleIcon} alt="Total Sale Icon" className="stats-icon" />
-        <p>Total Sale: $ </p>
-        <strong >{Math.round(statistics.totalSaleAmount) || 0}</strong>
+        <p>Total Sale:  </p>
+        <strong >`${Math.round(statistics.totalSaleAmount)` || 0}</strong>
       </div>
       </div>
     </div>
